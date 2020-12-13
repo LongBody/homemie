@@ -1,0 +1,648 @@
+*** Error With Vietnamese in servlet
+	response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+
+*** CHECK ISDIGIT (check string is number) 
+     Character.isDigit('r') => false
+     Character.isDigit('5') => true
+
+*** CHECK ISLETTER (check char is leter) 
+     Character.isLetter('c')
+     Character.isLetter('5')
+
+*** Convert int to String
+    String.valueOf(value);
+
+*** SET ATTRIBUTE AND DISPATCHER
+	Send : request.setAttribute("list", list);
+        request.getRequestDispatcher("Student.jsp").forward(request, response);
+	
+ 	Get :
+	 + ArrayList<Room> Rooms = (ArrayList<Room>) request.getAttribute("rooms");
+	 + String name = request.getAttribute("name"); (if is string )
+         + <%=students.get(i).getId()%> ( array )
+	 + ${value}
+
+*** GetAttribute
+  String pageSize = (String) request.getAttribute("pageSize");
+  ArrayList<Room> Rooms = (ArrayList<Room>) request.getAttribute("rooms");
+  ${mess.getFrom()}
+
+
+*** Login setsession Session 
+  HttpSession session = request.getSession();
+  session.setAttribute("users", acc);
+
+*** Get sessionhttp
+    Account acc = (Account) request.getSession().getAttribute("users");
+
+*** GET value input form 
+    String name = request.getParameter("name");
+
+*** GET data jsp from servlet not use session 
+    ArrayList<Room> Rooms = (ArrayList<Room>) request.getAttribute("rooms");
+    String sort = (String) request.getAttribute("sort");
+
+*** GET value href (a)
+    String name = request.getAttribute("name");
+
+
+*** Check Session data for access 
+	Account acc = (Account) request.getSession().getAttribute("users");
+        if (acc == null) {
+            out.print("Access denied");
+        }else -> logic
+
+*** PrintWriter 
+	PrintWriter out = response.getWriter();
+
+*** Redirect 
+      response.sendRedirect("list.jsp");
+
+
+*** JSTL link 
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+*** JSP scope
+	<c:set var="name" value="Dinesh" scope="page" />
+        Local Variable : <c:out value="${name}" />
+
+*** JSTL Empty List 
+
+	<c:if test="${not empty list}">
+            <table>
+                <tr>
+                    <td>id</td>
+                    <td>name</td>
+                    <td>dob</td>
+                    <td>gender</td>
+                </tr>
+                <tr>
+                    <c:forEach var="item" items="${list}">
+                    <tr>
+                        <td>${item.id}</td>
+                        <td>${item.name}</td>
+                        <td>${item.dob}</td>
+                        <td>
+                        <c:if test="${item.gender}">
+                            True
+                        </c:if>
+                        <c:if test="${not item.gender}">
+                            False
+                        </c:if>
+                    </td>
+                    </tr>
+                    </c:forEach>
+                </tr>
+            </table>
+        </c:if>
+
+
+*** JSTL set list to use For Each
+
+	  <c:set var="list" value="${requestScope.skills}" scope="request"/>
+            <form action="insert" method="POST">
+                ID <input type="text" name="id"/> <br/>
+                Name <input type="text" name="name"/> <br/>
+                Gender <input type="radio" name="gender" value="male" checked=""> Male
+                <input type="radio" name="gender" value="female" checked=""> Female
+                </br>
+                Dob <input type="date" name="dob"></br>
+                <h2>Skills:</h2>
+                <c:forEach items="${list}" var="s">
+                    <input type="checkbox" name="skill" value="${s.id}"/>${s.name}
+                    <br/>
+                </c:forEach>
+                    <input type="submit" value="Save"/>
+            </form>
+
+
+*** Context-Param
+	<context-param>
+        <param-name>operator</param-name>
+        <param-value>+</param-value>
+        </context-param>
+
+*** GET Context-Param
+	String operator = getServletContext().getInitParameter("operator");
+	Get  : +
+
+*** SessionScope 
+	Send : request.getSession().setAttribute("data", sLst); (note : data -> name that use in jsp - > must be same)
+	Get  : <c:forEach items="${sessionScope.data}" var="s" varStatus="loop" >
+            <div class="subject"> 
+                <div class="subjectinfo" > 
+                    Level:${s.level} - ${s.title} </div>
+                <div class="material">
+                    <c:forEach items="${s.materials}" var="a">
+                        ${a.content} ${a.inCurriculum?" is in Curriculum ":""} <br/>
+                    </c:forEach>
+                </div>
+            </div>  
+        </c:forEach>
+
+*** Random Number 
+      Random rand = new Random(); //instance of random class
+      int upperbound = 25;
+        //generate random values from 0-24
+      int int_random = rand.nextInt(upperbound); 
+      double double_random=rand.nextDouble();
+      float float_random=rand.nextFloat(
+
+***Cookies 
+
+  Cookie cookie = null;
+        Cookie[] cookies = null;
+        String email = "";
+        String password = "";
+        // Get an array of Cookies associated with this domain
+        cookies = request.getCookies();
+        if (cookies != null) {
+            for (int i = 0; i < cookies.length; i++) {
+                cookie = cookies[i];
+                if (cookie.getName().equals("email")) {
+                    email = cookie.getValue();
+                }
+                if (cookie.getName().equals("password")) {
+                    password = cookie.getValue();
+                }
+
+            }
+        }
+
+*** DETELTE cookies 
+	  Cookie[] cookies = request.getCookies();
+        PrintWriter out = response.getWriter();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                out.print(cookie.getName());
+                cookie.setValue(null);
+                cookie.setMaxAge(0);
+                response.addCookie(cookie);
+            }
+        }
+
+
+*** FOR LOOP ***
+
+
+*** if else 
+       <%      if () {%>
+    <%
+   } else {%>
+
+
+***forEach
+
+	<c:forEach items="${requestScope.list}" var="s" >
+                  <tr>
+                    <td><a href="message?id=${s.messageid}">${s.messagetitle} </a></td>
+                    <td>${s.from}</td>
+                    <td>${s.messagetime}</td>
+                    <td>
+                        <c:if test="${s.isread == true}"><img src="img/eye.png" alt=""/></c:if>
+                        <c:if test="${s.isread == false}"></c:if>
+                    </td>
+                    
+                </tr>
+            </c:forEach>
+
+
+
+***Random Date 
+	TH1 : String sDate1 = "31/12/2099";
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date endDate=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);  
+        Date startDate = new Date();
+        Date randomDate = new Date(ThreadLocalRandom.current().nextLong(startDate.getTime(), endDate.getTime()));
+        System.out.println(dateFormat.format(randomDate));
+	---------------------------------------------------
+	TH2:  String sDate1 = "01/01/1997";
+        String sDate2 = "31/12/1997";
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY");
+        Date endDate = new SimpleDateFormat("dd/MM/yyyy").parse(sDate2);
+        Date startDate = new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
+        Date randomDate = new Date(ThreadLocalRandom.current().nextLong(startDate.getTime(), endDate.getTime()));
+        System.out.println(dateFormat.format(randomDate));
+
+
+***RanDom String from ? - ? (random ? first after random )
+        String AB = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        SecureRandom rnd = new SecureRandom();
+        StringBuilder sb = new StringBuilder(7);
+        for (int i = 0; i < 7; i++) {
+            sb.append(AB.charAt(rnd.nextInt(AB.length())));
+        }
+        System.out.println(sb.toString());
+
+*** RANDOM NUMBER
+	TH1: Random r = new Random();
+        int low = 10;
+        int high = 100;
+        int result = r.nextInt(high-low) + low;
+        ex : // +1 neu lay tu 1 - 5 , khong  + 1 lay tu 1-4
+        int n = (int) (Math.random() * (5- 1 + 1) + 1);
+	--------------------------------------
+	TH2 : //0- 9
+        Random r = new Random();
+        int i= r.nextInt(10);
+
+
+*** DATE BETWEEN 
+	String dateCheckIn = request.getParameter("date-checkIn");
+        String dateCheckOut = request.getParameter("date-checkOut");
+
+	LocalDate dateBefore = LocalDate.parse(dateCheckIn);
+        LocalDate dateAfter = LocalDate.parse(dateCheckOut);
+
+	long noOfDaysBetween = ChronoUnit.DAYS.between(dateBefore, dateAfter);
+	
+	Ex: 20-11-2020 -> 22-11-2020 => date between = 2
+
+******** Method with DATE ***********
+	String dateCheckIn = request.getParameter("date-checkIn");
+	LocalDate dateBefore = LocalDate.parse(dateCheckIn);
+	String dateBeforeConvert = dateBefore.getDayOfMonth() + "-" + dateBefore.getMonthValue() + "/-" + dateBefore.getYear();
+	(ex : 21-7-2020 ) => Tuy chinh dang 
+
+***Get date now 
+	LocalDate currentdate = LocalDate.now();
+	!! Date now format : String date = currentdate.getYear() + "-" + currentdate.getDayOfMonth() + "-" + currentdate.getDayOfMonth() + " 00:00:00.000";
+
+*** STRING TO DATE
+	String startDateString = "06/27/2007";
+       DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
+         Date startDate;
+        try {
+    startDate = df.parse(startDateString);
+    String newDateString = df.format(startDate);
+    System.out.println(newDateString);
+      } catch (ParseException e) {
+    e.printStackTrace();
+       }
+
+
+***DATE TO STRING
+	Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+         String s = formatter.format(date);
+
+*** CONVERT DATE to string theo dang 
+    dob is string date
+    LocalDate date = LocalDate.parse(dob);
+    out.println("DOB: " + date.getMonthValue() + "/" + date.getDayOfMonth() + "/" + date.getYear());	
+
+
+*** HTML ***
+***Table form
+	 <form action="login" method="get">
+            <table border="2">
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="username"></td>
+                </tr>
+
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Login"></td>
+                </tr>
+
+                <tr>
+                </tr>
+            </table>
+        </form>
+
+---------------------- Cell that spans two columns
+   <table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th colspan="2">Telephone</th>
+  </tr>
+  <tr>
+    <td>Bill Gates</td>
+    <td>55577854</td>
+    <td>55577855</td>
+  </tr>
+</table>
+
+*** Form Select 
+	<form action="/action_page.php">
+  <label for="cars">Choose a car:</label>
+  <select name="cars" id="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="opel">Opel</option>
+    <option value="audi">Audi</option>
+  </select>
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+
+
+*** CHECKBOX INPUT 
+
+form action="/action_page">
+  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  <label for="vehicle1"> I have a bike</label><br>
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+  <label for="vehicle2"> I have a car</label><br>
+  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+  <label for="vehicle3"> I have a boat</label><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+*** RADIO INPUT
+  <form action="">
+  <input type="radio" name="gender" value="male"> Male<br>
+  <input type="radio" name="gender" value="female"> Female<br>
+  <input type="radio" name="gender" value="other"> Other
+  </form>
+
+***** SQL - DAO *****
+
+    Connection con;
+    PreparedStatement ps;
+    ResultSet rs;
+
+
+*** GET
+    Connection con;
+    PreparedStatement ps;
+    ResultSet rs;
+
+    public Account getAccountByUP(String email, String password) {
+        String sql = "select * from UserTBL where userid = ? and password = ?";
+        try {
+            try {
+                con = new DBContext().getConnection();
+            } catch (Exception ex) {
+                Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            ps = con.prepareStatement(sql);
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Account s = new Account(rs.getString(1), rs.getString(2));
+                return s;
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+
+*** LIST
+	public ArrayList<Account> listAcc(String name) {
+        ArrayList acc = new ArrayList();
+
+        try {
+            String sql = "SELECT userid FROM UserTBL where userid != '" + name + "'";
+            try {
+                con = new DBContext().getConnection();
+            } catch (Exception ex) {
+                Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                String s =rs.getString("userid");
+                acc.add(s);
+            }
+            return acc;
+        } catch (SQLException ex) {
+            Logger.getLogger(MessageDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+*** INSERT
+	public void insertAccount(String title, String time, String from, String to, String content) {
+        try {
+            String sql = "INSERT INTO MessageTBL"
+                    + " VALUES(?,?,?,? ,? ,?)";
+            try {
+                con = new DBContext().getConnection();
+            } catch (Exception ex) {
+                Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            ps = con.prepareStatement(sql);
+            ps.setString(1, title);
+            ps.setString(2,time);
+            ps.setString(3, from);
+            ps.setString(4, to);
+            ps.setString(5, content);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+*** INSERT MANY
+	public class StudentDAO extends DBContext{
+    public void add(Student s) {
+        String sql = "insert into student values(?,? ,? ,?)";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, s.getId());
+            st.setString(2, s.getName());
+            st.setDate(3, s.getDob());
+            st.setBoolean(4, s.getGender());
+            
+            st.executeUpdate();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+        //add Employeeskill - many
+        List<Skill> list = s.getSkill();
+        for(Skill i:list) {
+            String sql_S = "insert into student_skill values(?,?)";
+            try {
+                PreparedStatement st_S = connection.prepareStatement(sql_S);
+                st_S.setInt(1, i.getId());
+                st_S.setInt(2, s.getId());
+                
+                st_S.executeUpdate();
+            } catch (Exception ex) {
+                System.out.println(ex);
+            }
+        }
+    }
+}
+
+
+*** Insert many *** (VIP)
+	With DAO :  public void InsertAccount(String userid, String password) {
+        String query = "  insert into Account\n"
+                + "  values(?, ?)";
+        try {
+            cnn = new DBContext().getConnection();
+            ps = cnn.prepareStatement(query);
+            ps.setString(1, userid);
+            ps.setString(2, password);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public void InsertAccoutGroup(int groupid, String userid) {
+        String query = "  insert into Account_Group\n"
+                + "  values(?, ?)";
+        try {
+            cnn = new DBContext().getConnection();
+            ps = cnn.prepareStatement(query);
+            ps.setInt(1, groupid);
+            ps.setString(2, userid);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+---------------------------------------------------------
+	Servlet : String[] groupid = request.getParameterValues("groupid");
+	 d.InsertAccount(userid, password);
+        for (int i = 0; i < groupid.length; i++) {
+                    int id = Integer.parseInt(groupid[i]);
+                    d.InsertAccoutGroup(id, userid);
+                }
+
+*** UPDATE
+	TH1: public void changePassword(String email, String password) {
+       try {
+                con = new DBContext().getConnection();
+            } catch (Exception ex) {
+                Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        try {
+            String sql = "UPDATE account\n"
+                    + "SET password = '" +password 
+                    + "'WHERE email = '"+email+"'";
+            System.out.println(sql);
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+	TH2 :
+	public void edit(String id , String name) {
+       try {
+                con = new DBContext().getConnection();
+            } catch (Exception ex) {
+                Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        try {
+            int idPar = Integer.parseInt(id);
+            String sql = "UPDATE Dummy\n"
+                    + "SET name = '" +name
+                    + "'WHERE id = "+idPar;
+            System.out.println(sql);
+            ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(DAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+*** DELETE 
+     public void cancelBooking(String id) {
+       try {
+                con = new DBContext().getConnection();
+            } catch (Exception ex) {
+                Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        try {
+            String sql = "DELETE FROM bookingDetail WHERE idBooking = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, id);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+*** SEARCH 
+    public ArrayList<Room> searchRooms(String place) {
+        ArrayList<Room> Rooms = new ArrayList<>();
+        try {
+            String sql = "Select * from room where idRoomName like N'%" + place+ "%' ;
+            System.out.println(sql);
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Room s = new Room();
+                s.setRoomName(rs.getString("idRoomName"));
+                s.setName(rs.getString("name"));
+                s.setDetailImageRoom1(rs.getString("detailImageRoom1"));
+                s.setDetailImageRoom2(rs.getString("detailImageRoom2"));
+                s.setDetailImageRoom3(rs.getString("detailImageRoom3"));
+                s.setPrice(rs.getInt("price"));
+                s.setStar(rs.getInt("star"));
+                s.setQuantityBed(rs.getInt("quantityBed"));
+                s.setImageRoom(rs.getString("imageRoom"));
+                s.setDescription(rs.getString("descriptions"));
+                System.out.println(s);
+                Rooms.add(s);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AccountDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return Rooms;
+    }------------------------------------------
+
+	public class EmployeeDAO extends DBContext{
+    public List<Employee> getAllByName(String name) {
+        List<Employee> emp = new ArrayList<>();
+        String sql = "SELECT * FROM dbo.Employee WHERE name LIKE N'%" + name + "%'";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            
+            while(rs.next()) {
+                emp.add(new Employee(rs.getInt(1), 
+                        rs.getString(2), 
+                        rs.getDate(3), 
+                        rs.getBoolean(4)));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return emp;
+    }
+}
+
+*** SQL lenh
+	SELECT COUNT(name) FROM place
+	SELECT MIN(price)  from room
+        SELECT MAX(price)  from room
+	select * from room order by idRoomName  OFFSET ? ROWS FETCH NEXT 12 ROWS ONLY
+        select * from room order by price + sort  (asc , desc )
+	Select * from room where idRoomName like N'%keyword%'
+
+
+*** Ve
+	Circle:      
+        int num=Integer.parseInt(request.getParameter("num"));
+        Random rd= new Random();
+        List<Circle> data=new ArrayList<>();
+        int r=0;
+        for (int i = 0; i < num; i++) {
+            Circle c= new Circle(); 
+            c.setX(rd.nextInt(300+1)+100);
+            c.setY(rd.nextInt(300+1)+100);
+            do{
+                r=rd.nextInt(101);
+            }while(r<50);
+            c.setR(r);
+            data.add(c);
+        }
+        request.setAttribute("data", data);
+        request.getRequestDispatcher("circle.jsp").forward(request, response);
