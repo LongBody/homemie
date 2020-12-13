@@ -1,0 +1,25 @@
+.section__column__place {
+    padding-top: 130px !important;
+}
+
+.containerAlter {
+    padding-left: 180px;
+    padding-right: 180px;
+}
+
+.fa-bolt {
+    color: #f65e38;
+    padding-right: 3px;
+}
+
+.place__price__wrapper {
+    font-weight: bold;
+    font-size: 13px;
+    padding-top: 5px;
+}
+
+.place__column__wrapper {
+    padding-right: 15px;
+    padding-left: 0px !important;
+    padding-bottom: 15px;
+}

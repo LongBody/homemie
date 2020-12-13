@@ -1,0 +1,179 @@
+body {
+    font-family: sans-serif;
+}
+
+logo__brand {
+    height: 70px !important;
+}
+
+.navbar-light .navbar-nav .active>.nav-link {
+    font-weight: 700;
+    font-size: .875rem;
+}
+
+.navbar-light .navbar-nav .active>.nav-link:hover {
+    color: #f65e38;
+}
+
+.greeting__wrapper {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.navbar {
+    position: fixed !important;
+    z-index: 2;
+    width: 100%;
+    top: 0;
+}
+
+.service__homemie__wrap {
+    display: flex;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.service__item {
+    margin-right: 10px;
+    border-radius: 50px !important;
+    cursor: pointer;
+}
+
+.greeting__wrap__section {
+    margin-top: 30px;
+}
+
+.image__service {
+    height: 150px !important;
+}
+
+.card-title:hover {
+    color: #f65e38;
+}
+
+.place__travel__section {
+    margin-bottom: 30px;
+}
+
+.travel__text__wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2.5rem;
+    background-color: #7ec6bdc9;
+    color: #fff;
+    text-align: center;
+}
+
+a {
+text-decoration: none;
+}
+
+.travel__text__item {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px 10px 0px;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.travel__card__wrap {
+    transition: box-shadow .3s;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    float: left;
+}
+
+.travel__card__wrap:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+    opacity: 0.9;
+}
+
+
+.no__padding__right {
+    padding-right: 5px !important;
+    padding-left: 5px !important;
+}
+
+.travel__card__column {
+    margin-bottom: 15px;
+}
+
+.slide__carousel__wrapper {
+    margin-top: 120px;
+}
+
+.greeting__text__wrapper {
+    margin: 0px;
+}
+
+.footer__wrapper {
+    background-color: #f8f9fa!important
+}
+
+
+/* .travel__card__image {
+    transition: transform .2s;
+    Animation
+} */
+
+
+/* .travel__card__wrap:hover .travel__card__image { */
+
+
+/* transform: scale(1); */
+
+
+/* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+
+/* width: 200px; */
+
+
+/* } */
+
+.link__footer {
+    color: black;
+    text-decoration: none;
+}
+
+.link__footer:hover {
+    color: #f65e38;
+    text-decoration: none;
+}
+
+.fa-facebook-f {
+    color: #4267B2;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.fa-google-plus-g {
+    color: #DD4B39;
+    font-size: 20px;
+}
+
+.input-group.md-form.form-sm.form-1 input{
+  border: 1px solid #bdbdbd;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+.input-group.md-form.form-sm.form-2 input {
+  border: 1px solid #bdbdbd;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+.input-group.md-form.form-sm.form-2 input.red-border {
+  border: 1px solid #ef9a9a;
+}
+.input-group.md-form.form-sm.form-2 input.lime-border {
+  border: 1px solid #cddc39;
+}
+.input-group.md-form.form-sm.form-2 input.amber-border {
+  border: 1px solid #ffca28;
+}
