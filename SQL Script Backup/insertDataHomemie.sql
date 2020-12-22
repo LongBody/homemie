@@ -1,27 +1,15 @@
-﻿INSERT INTO place
-VALUES (N'Đà Lạt' , 'https://staticproxy.mytourcdn.com/0x0,q90/resources/pictures/cities/country1552989220.jpg');
-INSERT INTO place
-VALUES (N'Đà Nẵng' , 'https://staticproxy.mytourcdn.com/0x0,q90/resources/pictures/cities/country1552989374.jpg');
-INSERT INTO place
-VALUES (N'Bà Rịa - Vũng Tàu' , 'https://staticproxy.mytourcdn.com/0x0,q90/resources/pictures/cities/country1552984418.jpg');
-INSERT INTO place
-VALUES (N'Sa Pa' , 'https://ngohung94.github.io/Travel-Booking/img/img-tour/sapa.jpg');
-INSERT INTO place
-VALUES (N'Hà Nội' , 'https://staticproxy.mytourcdn.com/0x0,q90/resources/pictures/cities/country1552983635.jpg');
-INSERT INTO place
-VALUES (N'Phan Thiết' , 'https://staticproxy.mytourcdn.com/0x0,q90/resources/pictures/cities/country1552989338.jpg');
-INSERT INTO place
-VALUES (N'Phú Quốc' , 'https://staticproxy.mytourcdn.com/0x0,q90/resources/pictures/cities/country1552989304.jpg');
-INSERT INTO place
-VALUES (N'Hồ Chí Minh' , 'https://staticproxy.mytourcdn.com/0x0,q90/resources/pictures/cities/country1552983788.jpg');
-INSERT INTO place
-VALUES (N'Huế' , 'https://staticproxy.mytourcdn.com/0x0,q90/resources/pictures/cities/country1541584938.jpg');
-INSERT INTO place
-VALUES (N'Hạ Long' , 'https://staticproxy.mytourcdn.com/0x0,q90/resources/pictures/cities/country1541585274.jpg');
-INSERT INTO place
-VALUES (N'Nha Trang' , 'https://staticproxy.mytourcdn.com/0x0,q90/resources/pictures/cities/country1552984054.jpeg');
-INSERT INTO place
-VALUES (N'Hội An' , 'https://staticproxy.mytourcdn.com/0x0,q90/resources/pictures/cities/country1552984054.jpeg');
+INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Bà Rịa - Vũng Tàu', N'https://res.cloudinary.com/longbody/image/upload/v1608643998/homemie/vung_tau_ixvy5a.jpg')
+INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Đà Lạt', N'https://res.cloudinary.com/longbody/image/upload/v1608642840/homemie/%C4%91%C3%A0_l%E1%BA%A1t_s1rjis.webp')
+INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Đà Nẵng', N'https://res.cloudinary.com/longbody/image/upload/v1608642840/homemie/%C4%91%C3%A0_n%E1%BA%B5ng_sihnpu.webp')
+INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Hạ Long', N'https://res.cloudinary.com/longbody/image/upload/v1608642840/homemie/h%E1%BA%A1_long_beub1d.webp')
+INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Hà Nội', N'https://res.cloudinary.com/longbody/image/upload/v1608643998/homemie/ha_noi_umsaq9.jpg')
+INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Hồ Chí Minh', N'https://res.cloudinary.com/longbody/image/upload/v1608644001/homemie/hcm_iqhwwq.jpg')
+INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Hội An', N'https://res.cloudinary.com/longbody/image/upload/v1608643998/homemie/hoian_kjfkqv.jpg')
+INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Huế', N'https://res.cloudinary.com/longbody/image/upload/v1608643997/homemie/hue_bljgva.jpg')
+INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Nha Trang', N'https://res.cloudinary.com/longbody/image/upload/v1608642840/homemie/nha_trang_knuiw8.webp')
+INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Phan Thiết', N'https://res.cloudinary.com/longbody/image/upload/v1608642840/homemie/phan_thi%E1%BA%BFt_g8df9j.webp')
+INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Phú Quốc', N'https://res.cloudinary.com/longbody/image/upload/v1608642840/homemie/ph%C3%BA_qu%E1%BB%91c_w31lrm.webp')
+INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Sa Pa', N'https://res.cloudinary.com/longbody/image/upload/v1608643230/homemie/sapa_fj9fak.webp')
 
 INSERT INTO room
 VALUES (N'JADORE' , N'Đà lạt','da lat' , 'https://cdn.luxstay.com/users/42940/TApMAmFI4oPRd1LJ1vNnFbq5.jpg',
