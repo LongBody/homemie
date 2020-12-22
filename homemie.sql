@@ -167,7 +167,7 @@ INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Huế', N'https://staticpro
 INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Nha Trang', N'https://res.cloudinary.com/longbody/image/upload/v1608642840/homemie/nha_trang_knuiw8.webp')
 INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Phan Thiết', N'https://res.cloudinary.com/longbody/image/upload/v1608642840/homemie/phan_thi%E1%BA%BFt_g8df9j.webp')
 INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Phú Quốc', N'https://res.cloudinary.com/longbody/image/upload/v1608642840/homemie/ph%C3%BA_qu%E1%BB%91c_w31lrm.webp')
-INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Sa Pa', N'https://ngohung94.github.io/Travel-Booking/img/img-tour/sapa.jpg')
+INSERT [dbo].[place] ([name], [imageLink]) VALUES (N'Sa Pa', N'https://res.cloudinary.com/longbody/image/upload/v1608643230/homemie/sapa_fj9fak.webp')
 SET IDENTITY_INSERT [dbo].[room] ON 
 
 INSERT [dbo].[room] ([id], [roomName], [name], [searchName], [detailImageRoom1], [detailImageRoom2], [detailImageRoom3], [price], [star], [quantityBed], [imageRoom], [descriptions], [isLike], [isActive], [isExist]) VALUES (1, N'Homestay Đà Lạt L2', N'Đà lạt', N'da lat', N'https://cdn.luxstay.com/users/401239/9Q2V6sbFm1M-zKG4ABMTS2P5.jpg', N'https://cdn.luxstay.com/users/42940/QBgtvxCbi7I1-qMR7Cg7WcVv.jpg', N'https://cdn.luxstay.com/users/401239/2ZuHAlCdA8-BYtmrROfzy-Rp.jpg', 990000, 4, 1, N'https://cdn.luxstay.com/users/401239/9Q2V6sbFm1M-zKG4ABMTS2P5.jpg', N'Tọa lạc tại thành phố Đà Lạt, Nhà Mình Homestay có khu vườn.Chỗ nghỉ cách Biệt thự Hằng Nga (Ngôi nhà điên) khoảng 1,2 km và nằm gần Dinh Bảo Đại\Chỗ nghỉ cung cấp dịch vụ lễ tân 24 giờ và dịch vụ phòng cho khách.', 0, 1, 1)
