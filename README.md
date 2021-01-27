@@ -11,11 +11,11 @@ Paging ,Sort  , Search (VN- EN) <br/>
 Run SQL file (homemie.sql) <br/>
 Start web with indexControler.java (servlet) in Controller package
 <h2>Examples</h2>
-<img src="./web/image/homemie1.png"/>
-<img src="./web/image/homemie2.png"/>
-<img src="./web/image/homemie3.png"/>
-<img src="./web/image/homemie4.png"/>
-<img src="./web/image/homemie5.png"/>
+<img src="./web/image/homemie1.png"/> <br/>
+<img src="./web/image/homemie2.png"/> <br/>
+<img src="./web/image/homemie3.png"/> <br/>
+<img src="./web/image/homemie4.png"/> <br/>
+<img src="./web/image/homemie5.png"/> <br/>
 
 <h2>License</h2>
 <p>This project is licensed under the terms of Homemie</p>
