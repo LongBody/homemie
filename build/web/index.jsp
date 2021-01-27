@@ -234,7 +234,7 @@
                     <div class="col-lg-3 no__padding__right travel__card__column">
                         <a href="linkController1?name=<%=s.getName()%>">
                             <div class="card travel__card__wrap box">
-                                <img class="card-img-top travel__card__image img-fluid" src=<%=s.getImageLink()%> alt="Card image cap">
+                                <img class="card-img-top travel__card__image img-fluid" style="height: 200px" src=<%=s.getImageLink()%> alt="Card image cap">
                                      <p class="travel__text__wrap card-text"><span class="travel__text__item" > <%=s.getName()%> </span></p>
                             </div>
                         </a>

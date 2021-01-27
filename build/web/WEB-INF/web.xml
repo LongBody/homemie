@@ -172,6 +172,10 @@
         <servlet-name>linkController1</servlet-name>
         <servlet-class>controller.linkController1</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>hung</servlet-name>
+        <servlet-class>controller.hung</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginController</servlet-name>
         <url-pattern>/loginController</url-pattern>
@@ -343,6 +347,10 @@
     <servlet-mapping>
         <servlet-name>linkController1</servlet-name>
         <url-pattern>/linkController1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>hung</servlet-name>
+        <url-pattern>/hung</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
