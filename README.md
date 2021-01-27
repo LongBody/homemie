@@ -7,6 +7,9 @@ User Account, Admin page, <br/>
 Like List , Cart Rent , Book Room <br/>
 Paging ,Sort  , Search (VN- EN) <br/>
 
+<h2>Demo</h2>
+<a href="https://www.youtube.com/watch?v=rv7FjCBrnE0&feature=youtu.be">Homemie</a>
+
 <h2>Installation</h2>
 Run SQL file (homemie.sql) <br/>
 Start web with indexControler.java (servlet) in Controller package
@@ -19,4 +22,8 @@ Start web with indexControler.java (servlet) in Controller package
 
 <h2>License</h2>
 <p>This project is licensed under the terms of Homemie</p>
+
+
+
+
 
